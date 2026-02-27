@@ -1,5 +1,8 @@
 # syntax=docker/dockerfile:1.7
-FROM ghcr.io/astral-sh/uv:python3.11
+FROM python:3.11-slim
+
+# Install uv so dependency management works the same as the original base image
+RUN pip install --no-cache-dir uv
 
 WORKDIR /app
 COPY . /app
