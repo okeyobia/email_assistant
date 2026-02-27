@@ -1,0 +1,16 @@
+{
+  "accounts": [
+    {
+      "name": "personal",
+      "user_id": "me",
+      "credentials_file": "credentials_personal.json",
+      "token_file": "token_personal.json"
+    },
+    {
+      "name": "work",
+      "user_id": "me",
+      "credentials_file": "credentials_work.json",
+      "token_file": "token_work.json"
+    }
+  ]
+}

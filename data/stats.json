@@ -1,6 +1,6 @@
 {
-  "fetch_runs": 1,
-  "emails_seen": 25,
+  "fetch_runs": 2,
+  "emails_seen": 50,
   "label_runs": 1,
   "labels": {
     "Alerts": 13,
@@ -9,5 +9,11 @@
     "Personal": 4,
     "Promotions": 2,
     "Spam": 3
+  },
+  "accounts": {
+    "default": {
+      "fetch_runs": 1,
+      "emails_seen": 25
+    }
   }
 }

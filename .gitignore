@@ -16,6 +16,18 @@ wheels/
 .env.*.local
 .env.example    
 
+# Local config/state
+accounts.json
+data/email_assistant.db
+.pytest_cache/
+.coverage
+logs/*.log
+.terraform/
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate*
+terraform/*.tfvars
+
 # Credentials and tokens
 token.json  
 credentials.json
