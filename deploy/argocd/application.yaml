@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: email-assistant-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/REPLACE_ME_OWNER/email_assistant.git
+    targetRevision: main
+    path: deploy/overlays/prod
+    kustomize:
+      images:
+        - ghcr.io/example/email-assistant:latest
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: email-assistant
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

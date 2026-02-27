@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: email-assistant-config
+  namespace: email-assistant
+data:
+  LOG_LEVEL: INFO
+  FETCH_BATCH_SIZE: "50"
+  DB_PATH: /tmp/email_assistant.db
+  RULES_FILE: rules/rules.json
+  STATS_FILE: /tmp/stats.json

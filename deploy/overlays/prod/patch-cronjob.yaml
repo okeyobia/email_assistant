@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: email-assistant
+spec:
+  schedule: "*/15 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: email-assistant
+              args:
+                - label
+                - --max-results
+                - "75"
+                - --account
+                - work
+              env:
+                - name: ACCOUNT_NAME
+                  value: work

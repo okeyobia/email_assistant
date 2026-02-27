@@ -1,0 +1,49 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: email-assistant
+  namespace: email-assistant
+spec:
+  schedule: "*/30 * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        metadata:
+          labels:
+            app: email-assistant
+        spec:
+          serviceAccountName: email-assistant
+          restartPolicy: Never
+          containers:
+            - name: email-assistant
+              image: ghcr.io/example/email-assistant:latest
+              imagePullPolicy: IfNotPresent
+              args:
+                - label
+                - --max-results
+                - "50"
+              envFrom:
+                - configMapRef:
+                    name: email-assistant-config
+                - secretRef:
+                    name: email-assistant-secrets
+              env:
+                - name: ACCOUNT_NAME
+                  value: default
+              resources:
+                requests:
+                  cpu: 200m
+                  memory: 256Mi
+                limits:
+                  cpu: 1
+                  memory: 512Mi
+              volumeMounts:
+                - name: tmp-data
+                  mountPath: /tmp
+          volumes:
+            - name: tmp-data
+              emptyDir: {}
