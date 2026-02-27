@@ -80,20 +80,21 @@ resource "aws_iam_role" "task" {
       }
     ]
   })
+}
 
-  inline_policy {
-    name = "allow-parameter-store"
-    policy = jsonencode({
-      Version = "2012-10-17"
-      Statement = [
-        {
-          Effect   = "Allow"
-          Action   = ["ssm:GetParameters", "ssm:GetParameter", "secretsmanager:GetSecretValue"]
-          Resource = "*"
-        }
-      ]
-    })
-  }
+resource "aws_iam_role_policy" "task_parameter_store" {
+  name = "${local.name}-allow-parameter-store"
+  role = aws_iam_role.task.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect   = "Allow"
+        Action   = ["ssm:GetParameters", "ssm:GetParameter", "secretsmanager:GetSecretValue"]
+        Resource = "*"
+      }
+    ]
+  })
 }
 
 resource "aws_ecs_task_definition" "email" {
@@ -149,40 +150,41 @@ resource "aws_iam_role" "events" {
       }
     ]
   })
-
-  inline_policy {
-    name = "allow-ecs-run"
-    policy = jsonencode({
-      Version = "2012-10-17"
-      Statement = [
-        {
-          Effect   = "Allow"
-          Action   = ["ecs:RunTask", "ecs:DescribeTasks"]
-          Resource = [aws_ecs_task_definition.email.arn]
-          Condition = {
-            ArnLike = {
-              "ecs:cluster" = aws_ecs_cluster.this.arn
-            }
-          }
-        },
-        {
-          Effect   = "Allow"
-          Action   = ["iam:PassRole"]
-          Resource = [aws_iam_role.task_execution.arn, aws_iam_role.task.arn]
-        }
-      ]
-    })
-  }
 }
 
-resource "aws_events_rule" "scheduler" {
+resource "aws_iam_role_policy" "events_allow_ecs_run" {
+  name = "${local.name}-allow-ecs-run"
+  role = aws_iam_role.events.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect   = "Allow"
+        Action   = ["ecs:RunTask", "ecs:DescribeTasks"]
+        Resource = [aws_ecs_task_definition.email.arn]
+        Condition = {
+          ArnLike = {
+            "ecs:cluster" = aws_ecs_cluster.this.arn
+          }
+        }
+      },
+      {
+        Effect   = "Allow"
+        Action   = ["iam:PassRole"]
+        Resource = [aws_iam_role.task_execution.arn, aws_iam_role.task.arn]
+      }
+    ]
+  })
+}
+
+resource "aws_cloudwatch_event_rule" "scheduler" {
   name                = "${local.name}-rule"
   schedule_expression = var.schedule_expression
   description         = "Invoke the email assistant container on a schedule"
 }
 
-resource "aws_events_target" "scheduler" {
-  rule      = aws_events_rule.scheduler.name
+resource "aws_cloudwatch_event_target" "scheduler" {
+  rule      = aws_cloudwatch_event_rule.scheduler.name
   target_id = "${local.name}-target"
   arn       = aws_ecs_cluster.this.arn
   role_arn  = aws_iam_role.events.arn
