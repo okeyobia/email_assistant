@@ -1,45 +1,33 @@
 from __future__ import annotations
 
 import logging
-from typing import Iterable, List, Optional, Sequence, Set
+from typing import Iterable, Sequence, Set
 
 from models.email_message import EmailMessage
-from services.ml_classifier import MLClassifier
-from utils.rules_engine import RulesEngine
+from services.strategies import LabelingStrategy
 
 LOGGER = logging.getLogger(__name__)
 DEFAULT_LABELS: Set[str] = {"Work", "Personal", "Finance", "Promotions", "Spam"}
 
 
 class EmailClassifier:
-    """Combine rules and optional ML predictions."""
+    """Combines multiple labeling strategies (Strategy pattern)."""
 
-    def __init__(self, rules_engine: RulesEngine, ml_classifier: Optional[MLClassifier] = None):
-        self.rules_engine = rules_engine
-        self.ml_classifier = ml_classifier
+    def __init__(self, strategies: Iterable[LabelingStrategy]):
+        self._strategies = [strategy for strategy in strategies if strategy]
 
-    def classify(self, email: EmailMessage) -> List[str]:
-        labels = set(self.rules_engine.match(email))
-        LOGGER.debug("Rule-based labels for %s: %s", email.id, labels)
-        prediction = self._ml_prediction(email)
-        if prediction:
-            labels.add(prediction)
+    def classify(self, email: EmailMessage) -> list[str]:
+        labels = set()
+        for strategy in self._strategies:
+            try:
+                produced = list(strategy.labels_for(email))
+                LOGGER.debug("%s produced %s for %s", strategy.__class__.__name__, produced, email.id)
+                labels.update(produced)
+            except Exception as exc:  # noqa: BLE001
+                LOGGER.warning("Strategy %s failed: %s", strategy.__class__.__name__, exc)
         filtered = self._filter_allowed_labels(labels)
         LOGGER.info("Email %s classified as %s", email.id, filtered)
-        return sorted(filtered)
-
-    def _ml_prediction(self, email: EmailMessage) -> Optional[str]:
-        if not self.ml_classifier or not self.ml_classifier.is_ready:
-            return None
-        text = f"{email.subject}\n{email.body}"
-        try:
-            prediction = self.ml_classifier.predict(text)
-            if prediction:
-                LOGGER.debug("ML predicted %s for %s", prediction, email.id)
-            return prediction
-        except Exception as exc:  # noqa: BLE001
-            LOGGER.warning("ML prediction failed: %s", exc)
-            return None
+        return list(filtered)
 
     def _filter_allowed_labels(self, labels: Iterable[str]) -> Sequence[str]:
         cleaned = set()

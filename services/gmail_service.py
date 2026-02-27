@@ -10,7 +10,7 @@ from googleapiclient.errors import HttpError
 
 from models.email_message import EmailMessage
 from services.auth_service import AuthService
-from utils.config import AppConfig
+from utils.config import AccountConfig
 
 LOGGER = logging.getLogger(__name__)
 
@@ -18,15 +18,15 @@ LOGGER = logging.getLogger(__name__)
 class GmailService:
     """Wrapper around the Gmail API for the operations we need."""
 
-    def __init__(self, config: AppConfig, auth_service: AuthService):
-        self._config = config
+    def __init__(self, account: AccountConfig, auth_service: AuthService):
+        self._account = account
         self._auth_service = auth_service
         creds = self._auth_service.authenticate()
         self._client = build("gmail", "v1", credentials=creds, cache_discovery=False)
 
     @property
     def user_id(self) -> str:
-        return self._config.user_id
+        return self._account.user_id
 
     def fetch_unread_messages(self, max_results: int) -> List[EmailMessage]:
         try:

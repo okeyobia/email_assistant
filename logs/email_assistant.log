@@ -60,3 +60,38 @@
 2026-02-27 13:58:28,575 | INFO | main | Skipping 19c9faa6c163e9b0 because no labels matched
 2026-02-27 13:58:28,576 | INFO | services.email_classifier | Email 19c9fa10f553b963 classified as ['Alerts']
 2026-02-27 13:58:29,117 | INFO | services.gmail_service | Applied labels ['Label_5'] to message 19c9fa10f553b963
+2026-02-27 14:22:39,636 | INFO | services.gmail_service | Fetched 25 unread message headers
+2026-02-27 14:23:05,191 | INFO | services.gmail_service | Fetched 25 unread message headers
+2026-02-27 14:23:10,672 | INFO | services.email_classifier | Email 19ca0c04b04df119 classified as []
+2026-02-27 14:23:10,673 | INFO | main | Skipping 19ca0c04b04df119 because no labels matched
+2026-02-27 14:23:10,673 | INFO | services.email_classifier | Email 19ca0c01c5da2436 classified as ['Alerts']
+2026-02-27 14:23:10,678 | INFO | services.email_classifier | Email 19ca0ba36c4f3f4f classified as ['Alerts']
+2026-02-27 14:23:10,681 | INFO | services.email_classifier | Email 19ca0b6f2aa21b4c classified as ['Finance']
+2026-02-27 14:23:10,683 | INFO | services.email_classifier | Email 19ca0b5c113a3644 classified as ['Alerts']
+2026-02-27 14:23:10,691 | INFO | services.email_classifier | Email 19ca0b1ba5c8cd47 classified as ['Alerts', 'Finance', 'Personal', 'Work']
+2026-02-27 14:23:10,698 | INFO | services.email_classifier | Email 19ca0ad23e63e205 classified as ['Alerts', 'Work']
+2026-02-27 14:23:10,703 | INFO | services.email_classifier | Email 19ca0a321f01837f classified as ['Alerts', 'Finance', 'Personal', 'Work']
+2026-02-27 14:23:10,704 | INFO | services.email_classifier | Email 19ca09b357d87c61 classified as ['Alerts']
+2026-02-27 14:23:10,705 | INFO | services.email_classifier | Email 19ca093202941cf3 classified as ['Finance']
+2026-02-27 14:23:10,706 | INFO | services.email_classifier | Email 19ca06cd8b06bbff classified as ['Alerts']
+2026-02-27 14:23:10,708 | INFO | services.email_classifier | Email 19ca066427a8ca0c classified as ['Finance']
+2026-02-27 14:23:10,709 | INFO | services.email_classifier | Email 19ca059e9e155dc0 classified as []
+2026-02-27 14:23:10,709 | INFO | main | Skipping 19ca059e9e155dc0 because no labels matched
+2026-02-27 14:23:10,710 | INFO | services.email_classifier | Email 19ca05951e80a327 classified as []
+2026-02-27 14:23:10,710 | INFO | main | Skipping 19ca05951e80a327 because no labels matched
+2026-02-27 14:23:10,710 | INFO | services.email_classifier | Email 19ca0337703bd32e classified as []
+2026-02-27 14:23:10,711 | INFO | main | Skipping 19ca0337703bd32e because no labels matched
+2026-02-27 14:23:10,711 | INFO | services.email_classifier | Email 19ca0315db4b123b classified as ['Alerts', 'Promotions']
+2026-02-27 14:23:10,712 | INFO | services.email_classifier | Email 19ca01aeff4618d2 classified as []
+2026-02-27 14:23:10,712 | INFO | main | Skipping 19ca01aeff4618d2 because no labels matched
+2026-02-27 14:23:10,712 | INFO | services.email_classifier | Email 19ca0182a81581dc classified as []
+2026-02-27 14:23:10,712 | INFO | main | Skipping 19ca0182a81581dc because no labels matched
+2026-02-27 14:23:10,713 | INFO | services.email_classifier | Email 19ca00512e2475bb classified as []
+2026-02-27 14:23:10,713 | INFO | main | Skipping 19ca00512e2475bb because no labels matched
+2026-02-27 14:23:10,713 | INFO | services.email_classifier | Email 19c9fff01ba81289 classified as ['Alerts']
+2026-02-27 14:23:10,716 | INFO | services.email_classifier | Email 19c9fef5fb82eead classified as []
+2026-02-27 14:23:10,716 | INFO | main | Skipping 19c9fef5fb82eead because no labels matched
+2026-02-27 14:23:10,716 | INFO | services.email_classifier | Email 19c9febd0c4864c6 classified as ['Alerts', 'Finance', 'Work']
+2026-02-27 14:23:10,717 | INFO | services.email_classifier | Email 19c9fc9a37b38603 classified as ['Alerts']
+2026-02-27 14:23:10,718 | INFO | services.email_classifier | Email 19c9fc1038b11db0 classified as ['Finance', 'Promotions', 'Work']
+2026-02-27 14:23:10,720 | INFO | services.email_classifier | Email 19c9fb4777716656 classified as ['Alerts', 'Personal', 'Work']
