@@ -6,5 +6,5 @@ patches:
   - path: patch-cronjob.yaml
 images:
   - name: ghcr.io/example/email-assistant
-    newName: ghcr.io/example/email-assistant
-    newTag: latest
+    newName: ghcr.io/okeyobia/email_assistant
+    newTag: 1ab0bc757834b9fbcdb46ef5b0ddc532b7a83b75
