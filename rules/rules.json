@@ -2,28 +2,51 @@
   "rules": [
     {
       "label": "Work",
-      "keywords": ["project", "deadline", "client", "meeting", "sprint"],
-      "priority": 4
+      "keywords": ["project", "deadline", "client", "meeting", "sprint", "status update"],
+      "priority": 4,
+      "match_subject": true,
+      "match_body": true
     },
     {
       "label": "Personal",
-      "keywords": ["party", "family", "dinner", "catch up"],
-      "priority": 2
+      "keywords": ["party", "family", "dinner", "catch up", "vacation"],
+      "priority": 2,
+      "match_subject": true,
+      "match_body": true
     },
     {
       "label": "Finance",
-      "keywords": ["invoice", "receipt", "payment", "bank", "statement"],
-      "priority": 3
+      "keywords": ["invoice", "receipt", "payment", "bank", "statement", "transaction"],
+      "priority": 3,
+      "match_subject": true,
+      "match_body": true
     },
     {
       "label": "Promotions",
-      "keywords": ["sale", "discount", "offer", "deal"],
-      "priority": 1
+      "keywords": ["sale", "discount", "offer", "deal", "coupon"],
+      "priority": 1,
+      "match_subject": true,
+      "match_body": false
     },
     {
       "label": "Spam",
-      "keywords": ["lottery", "winner", "prince", "wire", "bitcoin"],
+      "keywords": ["lottery", "winner", "prince", "wire", "bitcoin", "crypto"],
       "priority": 5,
+      "match_subject": true,
+      "match_body": true
+    },
+    {
+      "label": "Travel",
+      "keywords": ["itinerary", "boarding pass", "reservation", "hotel", "flight"],
+      "priority": 3,
+      "match_subject": true,
+      "match_body": true
+    },
+    {
+      "label": "Alerts",
+      "keywords": ["alert", "notification", "action required", "security", "important"],
+      "priority": 4,
+      "match_subject": true,
       "match_body": true
     }
   ]
