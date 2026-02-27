@@ -7,4 +7,4 @@ patches:
 images:
   - name: ghcr.io/example/email-assistant
     newName: ghcr.io/okeyobia/email_assistant
-    newTag: f343211c4161898bd3fd253c2a6a80aece564200
+    newTag: b2e24cc93bf7c7c4c169fbcd62ecb750be06c5b5
