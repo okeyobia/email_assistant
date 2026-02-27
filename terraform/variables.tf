@@ -94,7 +94,7 @@ variable "extra_env" {
 variable "secret_env" {
   description = "Secrets injected via AWS Secrets Manager / SSM Parameter Store"
   type = list(object({
-    name      = string
+    name       = string
     value_from = string
   }))
   default = []

@@ -14,9 +14,9 @@ provider "aws" {
 }
 
 locals {
-  name            = "${var.project_name}-${var.environment}"
-  container_name  = "${var.project_name}-cli"
-  log_group_name  = "/ecs/${local.name}"
+  name           = "${var.project_name}-${var.environment}"
+  container_name = "${var.project_name}-cli"
+  log_group_name = "/ecs/${local.name}"
   merged_env_vars = merge(
     {
       LOG_LEVEL = var.log_level,
@@ -156,8 +156,8 @@ resource "aws_iam_role" "events" {
       Version = "2012-10-17"
       Statement = [
         {
-          Effect = "Allow"
-          Action = ["ecs:RunTask", "ecs:DescribeTasks"]
+          Effect   = "Allow"
+          Action   = ["ecs:RunTask", "ecs:DescribeTasks"]
           Resource = [aws_ecs_task_definition.email.arn]
           Condition = {
             ArnLike = {
@@ -166,8 +166,8 @@ resource "aws_iam_role" "events" {
           }
         },
         {
-          Effect = "Allow"
-          Action = ["iam:PassRole"]
+          Effect   = "Allow"
+          Action   = ["iam:PassRole"]
           Resource = [aws_iam_role.task_execution.arn, aws_iam_role.task.arn]
         }
       ]
@@ -188,12 +188,12 @@ resource "aws_events_target" "scheduler" {
   role_arn  = aws_iam_role.events.arn
 
   ecs_target {
-    launch_type = "FARGATE"
-    task_count  = var.task_count
+    launch_type         = "FARGATE"
+    task_count          = var.task_count
     task_definition_arn = aws_ecs_task_definition.email.arn
     network_configuration {
-      subnets         = var.subnet_ids
-      security_groups = var.security_group_ids
+      subnets          = var.subnet_ids
+      security_groups  = var.security_group_ids
       assign_public_ip = var.assign_public_ip
     }
   }
