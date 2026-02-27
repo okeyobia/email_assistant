@@ -198,4 +198,3 @@ resource "aws_events_target" "scheduler" {
     }
   }
 }
-*** End Patch
