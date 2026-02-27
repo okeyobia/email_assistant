@@ -1,0 +1,30 @@
+{
+  "rules": [
+    {
+      "label": "Work",
+      "keywords": ["project", "deadline", "client", "meeting", "sprint"],
+      "priority": 4
+    },
+    {
+      "label": "Personal",
+      "keywords": ["party", "family", "dinner", "catch up"],
+      "priority": 2
+    },
+    {
+      "label": "Finance",
+      "keywords": ["invoice", "receipt", "payment", "bank", "statement"],
+      "priority": 3
+    },
+    {
+      "label": "Promotions",
+      "keywords": ["sale", "discount", "offer", "deal"],
+      "priority": 1
+    },
+    {
+      "label": "Spam",
+      "keywords": ["lottery", "winner", "prince", "wire", "bitcoin"],
+      "priority": 5,
+      "match_body": true
+    }
+  ]
+}
