@@ -99,4 +99,3 @@ variable "secret_env" {
   }))
   default = []
 }
-*** End Patch
