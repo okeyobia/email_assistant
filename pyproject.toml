@@ -21,3 +21,13 @@ ml = [
 
 [project.scripts]
 email-assistant = "main:cli"
+
+[tool.uv]
+package = true
+
+[tool.setuptools.packages.find]
+include = ["services*", "models*", "utils*"]
+exclude = ["tests*", "data*", "logs*", "rules*", "scripts*"]
+
+[tool.setuptools]
+py-modules = ["main"]

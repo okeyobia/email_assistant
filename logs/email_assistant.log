@@ -1,0 +1,62 @@
+2026-02-27 13:48:24,959 | INFO | services.auth_service | Initiating OAuth flow using /Users/okeyobia/dev/okey-portfolio/email_assistant/credentials.json
+2026-02-27 13:48:29,536 | INFO | google_auth_oauthlib.flow | Please visit this URL to authorize this application: https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=402608257203-4co3puv49hgva9kh6i1s7u00jold75hk.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A53567%2F&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.modify&state=AvQRC6qsd6ty77QcVGGQ4YsY8ABoRc&code_challenge=CESax5SF1Rfj14bbL-P2w73H07hPgMUo8RQW9eBv30E&code_challenge_method=S256&access_type=offline
+2026-02-27 13:56:12,770 | INFO | services.auth_service | Initiating OAuth flow using /Users/okeyobia/dev/okey-portfolio/email_assistant/credentials.json
+2026-02-27 13:56:13,019 | INFO | google_auth_oauthlib.flow | Please visit this URL to authorize this application: https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=402608257203-4co3puv49hgva9kh6i1s7u00jold75hk.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A53690%2F&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.modify&state=iE85FQkWF3SnubLMhgyZkIYgTCRuBB&code_challenge=_-Sb2Vpw_r8TQ5Ssq7AlS6P_UOvNqiG0ElSEtjthnk0&code_challenge_method=S256&access_type=offline
+2026-02-27 13:56:23,261 | INFO | google_auth_oauthlib.flow | "GET /?state=iE85FQkWF3SnubLMhgyZkIYgTCRuBB&iss=https://accounts.google.com&code=4/0AfrIepBA_446ZDCDl6ZEpR3ISK2lPggB56Kwi28Ib_XcqjoDTLf0cjuP_NA0KQo7N3MXEQ&scope=https://www.googleapis.com/auth/gmail.modify HTTP/1.1" 200 65
+2026-02-27 13:56:23,770 | INFO | services.gmail_service | Fetched 25 unread message headers
+2026-02-27 13:58:11,044 | INFO | services.gmail_service | Fetched 25 unread message headers
+2026-02-27 13:58:16,758 | INFO | services.email_classifier | Email 19ca0ad23e63e205 classified as ['Alerts', 'Work']
+2026-02-27 13:58:17,356 | INFO | services.gmail_service | Created label Alerts with id Label_5
+2026-02-27 13:58:17,969 | INFO | services.gmail_service | Created label Work with id Label_6
+2026-02-27 13:58:18,477 | INFO | services.gmail_service | Applied labels ['Label_5', 'Label_6'] to message 19ca0ad23e63e205
+2026-02-27 13:58:18,478 | INFO | services.email_classifier | Email 19ca0a321f01837f classified as ['Alerts', 'Finance', 'Personal', 'Work']
+2026-02-27 13:58:19,098 | INFO | services.gmail_service | Created label Finance with id Label_7
+2026-02-27 13:58:19,713 | INFO | services.gmail_service | Created label Personal with id Label_8
+2026-02-27 13:58:20,224 | INFO | services.gmail_service | Applied labels ['Label_5', 'Label_7', 'Label_8', 'Label_6'] to message 19ca0a321f01837f
+2026-02-27 13:58:20,224 | INFO | services.email_classifier | Email 19ca09b357d87c61 classified as ['Alerts']
+2026-02-27 13:58:20,718 | INFO | services.gmail_service | Applied labels ['Label_5'] to message 19ca09b357d87c61
+2026-02-27 13:58:20,719 | INFO | services.email_classifier | Email 19ca093202941cf3 classified as ['Finance']
+2026-02-27 13:58:21,248 | INFO | services.gmail_service | Applied labels ['Label_7'] to message 19ca093202941cf3
+2026-02-27 13:58:21,249 | INFO | services.email_classifier | Email 19ca06cd8b06bbff classified as ['Alerts']
+2026-02-27 13:58:21,760 | INFO | services.gmail_service | Applied labels ['Label_5'] to message 19ca06cd8b06bbff
+2026-02-27 13:58:21,760 | INFO | services.email_classifier | Email 19ca066427a8ca0c classified as ['Finance']
+2026-02-27 13:58:22,272 | INFO | services.gmail_service | Applied labels ['Label_7'] to message 19ca066427a8ca0c
+2026-02-27 13:58:22,272 | INFO | services.email_classifier | Email 19ca059e9e155dc0 classified as []
+2026-02-27 13:58:22,272 | INFO | main | Skipping 19ca059e9e155dc0 because no labels matched
+2026-02-27 13:58:22,273 | INFO | services.email_classifier | Email 19ca05951e80a327 classified as []
+2026-02-27 13:58:22,273 | INFO | main | Skipping 19ca05951e80a327 because no labels matched
+2026-02-27 13:58:22,273 | INFO | services.email_classifier | Email 19ca0337703bd32e classified as []
+2026-02-27 13:58:22,273 | INFO | main | Skipping 19ca0337703bd32e because no labels matched
+2026-02-27 13:58:22,274 | INFO | services.email_classifier | Email 19ca0315db4b123b classified as ['Alerts', 'Promotions']
+2026-02-27 13:58:22,847 | INFO | services.gmail_service | Created label Promotions with id Label_9
+2026-02-27 13:58:23,399 | INFO | services.gmail_service | Applied labels ['Label_5', 'Label_9'] to message 19ca0315db4b123b
+2026-02-27 13:58:23,400 | INFO | services.email_classifier | Email 19ca01aeff4618d2 classified as []
+2026-02-27 13:58:23,400 | INFO | main | Skipping 19ca01aeff4618d2 because no labels matched
+2026-02-27 13:58:23,400 | INFO | services.email_classifier | Email 19ca0182a81581dc classified as []
+2026-02-27 13:58:23,400 | INFO | main | Skipping 19ca0182a81581dc because no labels matched
+2026-02-27 13:58:23,402 | INFO | services.email_classifier | Email 19ca00b5aea84f6b classified as ['Alerts', 'Personal', 'Spam']
+2026-02-27 13:58:24,175 | INFO | services.gmail_service | Applied labels ['Label_5', 'Label_8', 'SPAM'] to message 19ca00b5aea84f6b
+2026-02-27 13:58:24,176 | INFO | services.email_classifier | Email 19ca00512e2475bb classified as []
+2026-02-27 13:58:24,176 | INFO | main | Skipping 19ca00512e2475bb because no labels matched
+2026-02-27 13:58:24,177 | INFO | services.email_classifier | Email 19c9fff01ba81289 classified as ['Alerts']
+2026-02-27 13:58:24,832 | INFO | services.gmail_service | Applied labels ['Label_5'] to message 19c9fff01ba81289
+2026-02-27 13:58:24,833 | INFO | services.email_classifier | Email 19c9fef5fb82eead classified as []
+2026-02-27 13:58:24,833 | INFO | main | Skipping 19c9fef5fb82eead because no labels matched
+2026-02-27 13:58:24,833 | INFO | services.email_classifier | Email 19c9febd0c4864c6 classified as ['Alerts', 'Finance', 'Work']
+2026-02-27 13:58:25,381 | INFO | services.gmail_service | Applied labels ['Label_5', 'Label_7', 'Label_6'] to message 19c9febd0c4864c6
+2026-02-27 13:58:25,382 | INFO | services.email_classifier | Email 19c9fe3a708c623f classified as ['Alerts', 'Finance', 'Personal', 'Spam']
+2026-02-27 13:58:25,959 | INFO | services.gmail_service | Applied labels ['Label_5', 'Label_7', 'Label_8', 'SPAM'] to message 19c9fe3a708c623f
+2026-02-27 13:58:25,960 | INFO | services.email_classifier | Email 19c9fdc121e1dd47 classified as ['Finance']
+2026-02-27 13:58:26,482 | INFO | services.gmail_service | Applied labels ['Label_7'] to message 19c9fdc121e1dd47
+2026-02-27 13:58:26,486 | INFO | services.email_classifier | Email 19c9fd365216e096 classified as ['Alerts', 'Spam']
+2026-02-27 13:58:26,973 | INFO | services.gmail_service | Applied labels ['Label_5', 'SPAM'] to message 19c9fd365216e096
+2026-02-27 13:58:26,975 | INFO | services.email_classifier | Email 19c9fc9a37b38603 classified as ['Alerts']
+2026-02-27 13:58:27,495 | INFO | services.gmail_service | Applied labels ['Label_5'] to message 19c9fc9a37b38603
+2026-02-27 13:58:27,496 | INFO | services.email_classifier | Email 19c9fc1038b11db0 classified as ['Finance', 'Promotions', 'Work']
+2026-02-27 13:58:28,076 | INFO | services.gmail_service | Applied labels ['Label_7', 'Label_9', 'Label_6'] to message 19c9fc1038b11db0
+2026-02-27 13:58:28,079 | INFO | services.email_classifier | Email 19c9fb4777716656 classified as ['Alerts', 'Personal', 'Work']
+2026-02-27 13:58:28,573 | INFO | services.gmail_service | Applied labels ['Label_5', 'Label_8', 'Label_6'] to message 19c9fb4777716656
+2026-02-27 13:58:28,575 | INFO | services.email_classifier | Email 19c9faa6c163e9b0 classified as []
+2026-02-27 13:58:28,575 | INFO | main | Skipping 19c9faa6c163e9b0 because no labels matched
+2026-02-27 13:58:28,576 | INFO | services.email_classifier | Email 19c9fa10f553b963 classified as ['Alerts']
+2026-02-27 13:58:29,117 | INFO | services.gmail_service | Applied labels ['Label_5'] to message 19c9fa10f553b963

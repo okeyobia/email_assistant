@@ -1,0 +1,13 @@
+{
+  "fetch_runs": 1,
+  "emails_seen": 25,
+  "label_runs": 1,
+  "labels": {
+    "Alerts": 13,
+    "Work": 5,
+    "Finance": 7,
+    "Personal": 4,
+    "Promotions": 2,
+    "Spam": 3
+  }
+}
